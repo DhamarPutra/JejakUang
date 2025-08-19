@@ -1,0 +1,20 @@
+{
+    "name": "Jejak Uang",
+    "short_name": "JejakUang",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#0f1115",
+    "theme_color": "#111111",
+    "icons": [
+        {
+            "src": "./icons/icon192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "./icons/icon512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
