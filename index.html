@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no"
+    />
+    <meta name="theme-color" content="#111" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="./icons/icon192.png" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Jejak Uang</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      :root {
+        --safe-bottom: env(safe-area-inset-bottom);
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        background: #0f1115;
+        color: #fff;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+          Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
+          "Segoe UI Emoji";
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      #root {
+        min-height: 100dvh;
+        padding-bottom: calc(64px + var(--safe-bottom, 0px));
+      }
+
+      .app-shell {
+        width: 100%;
+        max-width: 420px;
+        min-height: 100dvh;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: calc(72px + var(--safe-bottom, 0px));
+      }
+      @media (min-width: 520px) {
+        .app-shell {
+          margin: 16px auto;
+          border: 1px solid #1f2836;
+          border-radius: 18px;
+          overflow: hidden;
+          box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+        }
+      }
+
+      .container {
+        max-width: 640px;
+        margin-inline: auto;
+        padding: 12px;
+      }
+      .grid {
+        display: grid;
+        gap: 12px;
+      }
+      .row {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      .muted {
+        color: #9aa4b2;
+      }
+      .icon {
+        font-size: 20px;
+      }
+      .spacer {
+        height: 12px;
+      }
+
+      .card {
+        background: #161a22;
+        border: 1px solid #222837;
+        border-radius: 14px;
+        padding: 16px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+      }
+      .card:hover {
+        border-color: #2a3242;
+      }
+
+      label {
+        font-size: 13px;
+        color: #9aa4b2;
+        margin-bottom: 6px;
+        display: block;
+      }
+
+      input,
+      select,
+      textarea,
+      button {
+        font: inherit;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        background: #0f131a;
+        color: #e2e8f0;
+        border: 1px solid #2a3242;
+        border-radius: 12px;
+        padding: 10px 12px;
+        height: 44px;
+        outline: none;
+      }
+      textarea {
+        min-height: 88px;
+        height: auto;
+        resize: vertical;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: #3a63ff;
+        box-shadow: 0 0 0 2px rgba(59, 99, 255, 0.18);
+      }
+
+      ::placeholder {
+        color: #6b7483;
+      }
+
+      input[type="date"] {
+        padding-right: 38px;
+      }
+      input[type="date"]::-webkit-calendar-picker-indicator {
+        opacity: 0.85;
+        filter: invert(1);
+        background: none;
+        cursor: pointer;
+      }
+
+      button.primary {
+        width: 100%;
+        height: 48px;
+        background: #2b6ef6;
+        border: 1px solid #2b6ef6;
+        color: #fff;
+        font-weight: 700;
+        border-radius: 12px;
+      }
+      button.primary:disabled {
+        opacity: 0.6;
+      }
+
+      .pill {
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        border: 1px solid #30384a;
+      }
+      .success {
+        color: #3ecf8e;
+      }
+      .danger {
+        color: #ff6b6b;
+      }
+      .balance {
+        color: #e2e8f0;
+      }
+      .hidden-amount {
+        letter-spacing: 2px;
+      }
+
+      .toolbar {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+      }
+      .toolbar > * {
+        white-space: nowrap;
+      }
+
+      /* ---- Form di dalam card (semua kolom berada di 1 kotak) ---- */
+      .form-card {
+        max-width: 420px;
+        margin: 8px auto;
+      }
+      .form-stack {
+        display: grid;
+        gap: 12px;
+      }
+
+      .field-group {
+        background: #11151d;
+        border: 1px solid #2a3242;
+        border-radius: 12px;
+        padding: 12px;
+        display: grid;
+        gap: 12px;
+      }
+
+      .field-row-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .field {
+        display: grid;
+        gap: 6px;
+      }
+
+      /* ---- Bottom Navigation ---- */
+      .bottom-nav {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 64px;
+        background: #0f131a;
+        border-top: 1px solid #1f2836;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding-bottom: var(--safe-bottom, 0);
+      }
+      .nav-item {
+        text-align: center;
+        font-size: 12px;
+        color: #9aa4b2;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+      }
+      .nav-item.active {
+        color: #fff;
+      }
+    </style>
+    <script type="module" crossorigin src="/JejakUang/assets/index-CF3imDym.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("./sw.js");
+        });
+      }
+    </script>
+  </body>
+</html>
