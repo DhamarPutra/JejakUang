@@ -2,7 +2,7 @@
 
 > **Aplikasi Pencatat Keuangan Pribadi (PWA)** yang simpel, cepat, dan bisa berjalan tanpa internet.
 
-![Jejak Uang Banner](./public/assets/img/home.png)
+![Jejak Uang Banner](https://github.com/DhamarPutra/JejakUang/blob/main/assets/img/home.png?raw=true)
 
 Aplikasi ini dibuat menggunakan stack modern **React + TypeScript + Zustand** untuk performa maksimal. Fokus utama aplikasi ini adalah kemudahan penggunaan (mobile-first), kecepatan, dan privasi data (semua data tersimpan lokal di perangkat Anda).
 
@@ -43,15 +43,15 @@ Aplikasi ini dibuat menggunakan stack modern **React + TypeScript + Zustand** un
 
 | 🏠 Home Dashboard | 📊 Laporan & Grafik |
 |-------------------|---------------------|
-| ![Home Page](./public/assets/img/home.png) | ![Laporan Page](./public/assets/img/laporan.png) |
+| ![Home Page](https://github.com/DhamarPutra/JejakUang/blob/main/assets/img/home.png?raw=true) | ![Laporan Page](https://github.com/DhamarPutra/JejakUang/blob/main/assets/img/home.png?raw=true) |
 
 | ➕ Tambah Transaksi | ⚙️ Pengaturan |
 |---------------------|---------------|
-| ![Tambah Page](./public/assets/img/tambah.png) | ![Settings Page](./public/assets/img/settings.png) |
+| ![Tambah Page](https://github.com/DhamarPutra/JejakUang/blob/main/assets/img/tambah.png?raw=true) | ![Settings Page](https://github.com/DhamarPutra/JejakUang/blob/main/assets/img/settings.png?raw=true) |
 
 | 💬 Kritik & Saran | |
 |-------------------|---|
-| ![Kritik & Saran Page](./public/assets/img/kritik-saran.png) | |
+| ![Kritik & Saran Page](https://github.com/DhamarPutra/JejakUang/blob/main/assets/img/kritik-saran.png?raw=true) | |
 
 ---
 
