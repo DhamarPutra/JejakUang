@@ -21,8 +21,9 @@ Cocok dipakai untuk pencatatan keuangan sehari-hari, bahkan tanpa koneksi intern
 Aplikasi ini mendukung mode **Add to Homescreen**.
 
 1. Buka aplikasi di browser mobile (Chrome/Edge/Brave).
-2. Pilih **"Add to Homescreen" / "Tambahkan ke layar utama"**.
-3. Jalankan aplikasi layaknya aplikasi native.
+2. Ketik/klik url ini [https://dhamarputra.github.io/JejakUang/](https://dhamarputra.github.io/JejakUang/) 
+3. Pilih **"Add to Homescreen" / "Tambahkan ke layar utama"**.
+4. Jalankan aplikasi layaknya aplikasi native.
 
 ---
 
