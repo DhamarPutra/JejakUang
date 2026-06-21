@@ -1,0 +1,50 @@
+name: CI
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */1 * * *' # Runs every 1 hours
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository to work with
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      # Overwrite log.md with the current Indonesian time (WIB - UTC+7)
+      - name: Overwrite log with Indonesian time
+        run: |
+          WIB=$(TZ='Asia/Jakarta' date +"%A, %d %B %Y %H.%M.%S")
+          WITA=$(TZ='Asia/Makassar' date +"%A, %d %B %Y %H.%M.%S")
+          WIT=$(TZ='Asia/Jayapura' date +"%A, %d %B %Y %H.%M.%S")
+          
+          cat > log.md <<EOF
+          WIB: $WIB UTC
+          WITA: $WITA UTC
+          WIT: $WIT UTC
+          EOF
+          
+          # Add and commit the changes
+          git add .
+          git config user.name 'DhamarPutra'
+          git config user.email 'damarputra0191@gmail.com'
+          git commit -am "Jangan Lupa Follow https://www.instagram.com/damarp_p"
+          git push || echo "No changes to push"
+
+      # Display a simple confirmation message
+      - name: Show Message
+        run: echo "log.md overwritten with new Indonesian time. Commit complete!"
